@@ -74,3 +74,11 @@ notes-management-application/
 
 ## Notes about data
 Notes are stored in `data/notes.json` on the server. This is suitable for a classroom/demo project. For a production multi-user app, use a database and authentication.
+
+## Team Members
+- A.Charan teja
+- A.Maha lakshmi
+- Ajay.J
+- A.Mokshith
+- vijay kumar
+- Atchaya.k
