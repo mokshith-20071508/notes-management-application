@@ -1,0 +1,13 @@
+{
+  "name": "notes-management-application",
+  "version": "1.0.0",
+  "description": "A simple, responsive notes management application with categories, search, and persistent storage.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

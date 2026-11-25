@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create, edit, search, and organize your personal notes.">
+  <title>Notes — Notes Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">N</span><span>NoteSpace</span></div>
+      <button class="new-note-btn" id="newNoteBtn"><span>＋</span> New note</button>
+      <p class="nav-label">WORKSPACE</p>
+      <button class="nav-item active" data-category="All"><span>▦</span> All notes <span class="nav-count" id="allCount">0</span></button>
+      <button class="nav-item" data-category="Personal"><span>♡</span> Personal</button>
+      <button class="nav-item" data-category="Study"><span>▤</span> Study</button>
+      <button class="nav-item" data-category="Work"><span>▣</span> Work</button>
+      <button class="nav-item" data-category="Ideas"><span>✧</span> Ideas</button>
+      <div class="sidebar-bottom">
+        <div class="storage-card"><span class="storage-icon">☁</span><div><strong>Your notes, together</strong><small>Saved on this app</small></div></div>
+        <p class="sidebar-foot">Notes Management<br>Application · v1.0</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">N</span> NoteSpace</div>
+        <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search notes..." aria-label="Search notes"><kbd>⌘ K</kbd></div>
+        <button class="top-new" id="topNewBtn">＋ New note</button>
+      </header>
+
+      <section class="content">
+        <div class="page-heading">
+          <div><p class="eyebrow">YOUR WORKSPACE</p><h1 id="pageTitle">All notes</h1><p class="subheading" id="pageSubtitle">Keep your thoughts clear and organized.</p></div>
+          <div class="heading-count"><strong id="visibleCount">0</strong><span>notes</span></div>
+        </div>
+
+        <div class="toolbar">
+          <div class="view-tabs"><button class="view-tab selected" id="recentTab">Recently updated</button></div>
+          <label class="sort-label">Sort <select id="sortSelect"><option value="updated">Last updated</option><option value="title">Title A–Z</option><option value="created">Date created</option></select></label>
+        </div>
+
+        <div class="notes-grid" id="notesGrid"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-illustration">✎</div><h2 id="emptyTitle">Your notes start here</h2>
+          <p id="emptyText">Capture a thought, a reminder, or something you want to remember.</p>
+          <button class="new-note-btn" id="emptyNewBtn">＋ Create your first note</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="noteDialog">
+    <form id="noteForm" class="note-form">
+      <div class="dialog-head"><div><p class="eyebrow">NOTE EDITOR</p><h2 id="dialogTitle">Create a note</h2></div><button type="button" class="icon-btn" id="closeDialog" aria-label="Close">×</button></div>
+      <label for="noteTitle">Title</label><input id="noteTitle" maxlength="120" placeholder="Give your note a title..." required>
+      <label for="noteCategory">Category</label>
+      <div class="category-row"><select id="noteCategory"><option>Personal</option><option>Study</option><option>Work</option><option>Ideas</option></select><input id="customCategory" maxlength="40" placeholder="Or type a new category"></div>
+      <label for="noteContent">Note</label><textarea id="noteContent" maxlength="20000" rows="9" placeholder="Write something worth remembering..." required></textarea>
+      <p class="form-error" id="formError" role="alert"></p>
+      <div class="dialog-actions"><button type="button" class="cancel-btn" id="cancelDialog">Cancel</button><button type="submit" class="save-btn" id="saveBtn">Save note</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
