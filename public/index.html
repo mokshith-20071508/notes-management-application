@@ -6,6 +6,9 @@
   <meta name="description" content="Create, edit, search, and organize your personal notes.">
   <title>Notes — Notes Management</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    if (!localStorage.getItem("username")) window.location.replace("login.html");
+  </script>
 </head>
 <body>
   <div class="app-shell">
@@ -28,12 +31,15 @@
       <header class="topbar">
         <div class="mobile-brand"><span class="brand-mark">N</span> NoteSpace</div>
         <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search notes..." aria-label="Search notes"><kbd>⌘ K</kbd></div>
-        <button class="top-new" id="topNewBtn">＋ New note</button>
+        <div class="top-actions">
+          <button type="button" class="logout-btn" id="logoutBtn">Log out</button>
+          <button class="top-new" id="topNewBtn">＋ New note</button>
+        </div>
       </header>
 
       <section class="content">
         <div class="page-heading">
-          <div><p class="eyebrow">YOUR WORKSPACE</p><h1 id="pageTitle">All notes</h1><p class="subheading" id="pageSubtitle">Keep your thoughts clear and organized.</p></div>
+          <div><p class="eyebrow">YOUR WORKSPACE</p><h1 id="pageTitle">All notes</h1><p class="subheading" id="pageSubtitle">Keep your thoughts clear and organized.</p><p class="welcome-message" id="userLabel"></p></div>
           <div class="heading-count"><strong id="visibleCount">0</strong><span>notes</span></div>
         </div>
 

@@ -1,3 +1,6 @@
+const savedUsername = localStorage.getItem("username");
+if (!savedUsername) window.location.replace("login.html");
+
 const grid = document.getElementById("notesGrid");
 const emptyState = document.getElementById("emptyState");
 const dialog = document.getElementById("noteDialog");
@@ -14,6 +17,7 @@ const pageSubtitle = document.getElementById("pageSubtitle");
 const visibleCount = document.getElementById("visibleCount");
 const allCount = document.getElementById("allCount");
 const toast = document.getElementById("toast");
+const userLabel = document.getElementById("userLabel");
 
 let notes = [];
 let activeCategory = "All";
@@ -28,7 +32,9 @@ async function api(url, options = {}) {
   if (!response.ok) {
     let message = "Something went wrong.";
     try { message = (await response.json()).error || message; } catch {}
-    throw new Error(message);
+    const error = new Error(message);
+    error.status = response.status;
+    throw error;
   }
   return response.status === 204 ? null : response.json();
 }
@@ -108,9 +114,25 @@ async function loadNotes() {
     notes = await api("/api/notes");
     render();
   } catch (error) {
+    if (error.status === 401) {
+      localStorage.removeItem("username");
+      window.location.replace("login.html");
+      return;
+    }
     notify("Could not load notes. Is the server running?");
   }
 }
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  localStorage.removeItem("username");
+  try {
+    await api("/api/auth/logout", { method: "POST" });
+  } catch (error) {
+    console.error("Could not clear the server session:", error);
+  } finally {
+    window.location.replace("login.html");
+  }
+});
 
 function openEditor(note = null) {
   editingId = note ? note.id : null;
@@ -198,4 +220,7 @@ document.addEventListener("keydown", event => {
   }
 });
 
-loadNotes();
+if (savedUsername) {
+  userLabel.textContent = `Welcome, ${savedUsername}`;
+  loadNotes();
+}

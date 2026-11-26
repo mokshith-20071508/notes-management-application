@@ -14,3 +14,24 @@
 dialog{border:0;border-radius:18px;padding:0;width:min(560px,calc(100% - 28px));box-shadow:0 25px 90px #20273530}dialog::backdrop{background:#1d2434a6;backdrop-filter:blur(3px)}.note-form{padding:27px}.dialog-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}.dialog-head h2{font:800 22px Manrope;margin:0}.icon-btn{border:0;background:#f4f5f9;border-radius:8px;width:32px;height:32px;font-size:23px;color:#7f8796}.note-form>label{display:block;font-size:12px;font-weight:700;margin:16px 0 8px}.note-form input,.note-form textarea,.note-form select{width:100%;border:1px solid #e4e8f0;border-radius:9px;padding:12px 13px;outline:0;font-size:13px;background:#fff;color:var(--ink)}.note-form input:focus,.note-form textarea:focus,.note-form select:focus{border-color:#a59cf5;box-shadow:0 0 0 3px #6757e812}.note-form textarea{resize:vertical;line-height:1.65}.category-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form-error{color:#d34e5b;font-size:12px;min-height:16px}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:10px}.cancel-btn,.save-btn{border-radius:9px;padding:11px 17px;font-size:13px;font-weight:700}.cancel-btn{border:1px solid #e3e7ee;background:#fff;color:#687184}.save-btn{border:0;background:var(--purple);color:#fff}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:#252b3a;color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;opacity:0;pointer-events:none;transition:.2s;box-shadow:0 10px 25px #1112}.toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:1100px){.notes-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar{width:220px}.content{padding-top:36px}}
 @media(max-width:720px){.sidebar{width:64px;padding:20px 8px}.brand{justify-content:center;margin:0 0 25px}.brand>span:last-child,.sidebar .new-note-btn:not(span),.nav-label,.nav-item:not(.active),.nav-item.active{font-size:0}.sidebar .new-note-btn{padding:12px 0;font-size:0}.sidebar .new-note-btn span{font-size:22px}.nav-item{justify-content:center;padding:12px 0}.nav-item>span:first-child{font-size:19px}.nav-count,.sidebar-bottom{display:none}.topbar{height:70px;padding:0 16px}.mobile-brand{display:flex;align-items:center;gap:8px;font:700 14px Manrope;white-space:nowrap}.mobile-brand .brand-mark{width:27px;height:27px;font-size:14px;border-radius:8px}.search-wrap{width:auto;flex:1;padding:8px 10px;gap:7px}.search-wrap kbd,.top-new{display:none}.content{padding:30px 18px 50px}.page-heading h1{font-size:26px}.subheading{max-width:230px;line-height:1.6}.notes-grid{grid-template-columns:1fr;gap:13px}.note-card{min-height:185px}.toolbar{margin-top:28px}.category-row{grid-template-columns:1fr}.note-form{padding:22px}.dialog-head h2{font-size:19px}}
+
+[hidden]{display:none!important}
+.auth-screen{min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(145deg,#f8f7ff,#fbfcfe 55%,#f3f6ff)}
+.auth-card{width:min(420px,100%);background:var(--white);border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:0 18px 60px #25334a0d}
+.auth-brand{margin:0 0 34px}
+.auth-card>.eyebrow{margin-bottom:9px}
+.auth-card h1{font:800 25px Manrope,sans-serif;letter-spacing:-.7px;margin:0}
+.auth-description{font-size:13px;color:var(--muted);margin:9px 0 25px}
+.auth-card form label{display:block;font-size:12px;font-weight:700;margin:16px 0 8px}
+.auth-card form input{width:100%;border:1px solid #e4e8f0;border-radius:9px;padding:12px 13px;outline:0;font-size:13px;color:var(--ink)}
+.auth-card form input:focus{border-color:#a59cf5;box-shadow:0 0 0 3px #6757e812}
+.auth-card .form-error{min-height:16px;margin:10px 0}
+.auth-submit{width:100%;padding:12px}
+.auth-switch-copy{text-align:center;color:var(--muted);font-size:12px;margin:22px 0 0}
+.auth-switch{border:0;background:transparent;color:var(--purple);font-size:12px;font-weight:700;padding:4px}
+.top-actions{display:flex;align-items:center;gap:12px}
+.welcome-message{color:var(--purple);font-size:12px;font-weight:600;margin:8px 0 0}
+.logout-btn{border:1px solid #e2e6ef;background:#fff;border-radius:9px;padding:9px 12px;color:#687184;font-size:12px;font-weight:700}
+.logout-btn:hover{border-color:var(--purple);color:var(--purple)}
+@media(max-width:720px){.top-actions{gap:7px}.logout-btn{padding:8px 9px;font-size:11px}}
+@media(max-width:420px){.auth-card{padding:27px 22px}}
